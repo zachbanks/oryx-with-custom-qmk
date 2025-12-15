@@ -38,6 +38,12 @@ jobs:
           ref: oryx
           submodules: recursive
 
+      - name: Fetch Achordion module
+        run: |
+          cd qmk_firmware
+          mkdir -p modules/getreuer
+          git clone --depth 1 https://github.com/getreuer/qmk-modules.git modules/getreuer
+
       - name: Download the full history for the merge to work correctly
         run: git pull --unshallow
 
