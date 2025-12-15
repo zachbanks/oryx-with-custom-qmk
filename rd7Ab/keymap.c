@@ -6,8 +6,6 @@
 #define ZSA_SAFE_RANGE SAFE_RANGE
 #endif
 
-#define IGNORE_MOD_TAP_INTERRUPT
-
 enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
   ST_MACRO_0,
