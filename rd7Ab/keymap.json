@@ -2,6 +2,6 @@
     "modules": [
         "zsa/oryx",
         "zsa/defaults"
-        ["getreuer/achordion"]
+        "getreuer/achordion"
     ]
 }
