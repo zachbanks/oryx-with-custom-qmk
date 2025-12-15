@@ -24,3 +24,5 @@
 #define TAPPING_TERM_PER_KEY
 #define RGB_MATRIX_STARTUP_SPD 60
 
+# ─────────────────────────── Custom mods ───────────────────────────
+#define IGNORE_MOD_TAP_INTERRUPT
