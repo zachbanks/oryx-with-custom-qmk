@@ -25,7 +25,7 @@ enum tap_dance_codes {
   DANCE_0,
 };
 
-#define DUAL_FUNC_0 LT(14, KC_S)
+#define DUAL_FUNC_0 LT(4, KC_6)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -72,13 +72,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
-const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT(
-  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
-  '*', '*', '*', '*'
-);
 
 const uint16_t PROGMEM combo0[] = { LT(1, KC_F), KC_SCLN, COMBO_END};
 
@@ -89,43 +82,43 @@ combo_t key_combos[COMBO_COUNT] = {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LCTL, KC_W):
-            return TAPPING_TERM -40;
+            return TAPPING_TERM + 30;
         case MT(MOD_LALT, KC_E):
-            return TAPPING_TERM -40;
+            return TAPPING_TERM + 30;
         case MT(MOD_LGUI, KC_R):
-            return TAPPING_TERM -40;
+            return TAPPING_TERM + 30;
         case MT(MOD_LCTL, KC_TAB):
-            return TAPPING_TERM -25;
+            return TAPPING_TERM + 45;
         case TD(DANCE_0):
-            return TAPPING_TERM -40;
+            return TAPPING_TERM + 30;
         case LT(3, KC_S):
-            return TAPPING_TERM -40;
+            return TAPPING_TERM + 30;
         case LT(2, KC_D):
-            return TAPPING_TERM -40;
+            return TAPPING_TERM + 30;
         case LT(1, KC_F):
-            return TAPPING_TERM -25;
+            return TAPPING_TERM + 45;
+        case KC_V:
+            return TAPPING_TERM + 70;
         case DUAL_FUNC_0:
-            return TAPPING_TERM -25;
-        case MT(MOD_LSFT, KC_TAB):
-            return TAPPING_TERM -70;
+            return TAPPING_TERM + 45;
         case MT(MOD_RGUI, KC_U):
-            return TAPPING_TERM -40;
+            return TAPPING_TERM + 30;
         case MT(MOD_RALT, KC_I):
-            return TAPPING_TERM -40;
+            return TAPPING_TERM + 30;
         case MT(MOD_RCTL, KC_O):
-            return TAPPING_TERM -40;
+            return TAPPING_TERM + 30;
         case LT(1, KC_J):
-            return TAPPING_TERM -25;
+            return TAPPING_TERM + 45;
         case LT(2, KC_K):
-            return TAPPING_TERM -40;
+            return TAPPING_TERM + 30;
         case LT(3, KC_L):
-            return TAPPING_TERM -40;
+            return TAPPING_TERM + 30;
         case KC_SCLN:
-            return TAPPING_TERM -50;
+            return TAPPING_TERM + 20;
         case MT(MOD_RCTL, KC_QUOTE):
-            return TAPPING_TERM -25;
-        case MT(MOD_RSFT, KC_BSPC):
-            return TAPPING_TERM -70;
+            return TAPPING_TERM + 45;
+        case KC_M:
+            return TAPPING_TERM + 70;
         default:
             return TAPPING_TERM;
     }
