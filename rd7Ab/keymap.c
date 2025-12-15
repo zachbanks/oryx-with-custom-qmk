@@ -5,6 +5,7 @@
 #ifndef ZSA_SAFE_RANGE
 #define ZSA_SAFE_RANGE SAFE_RANGE
 #endif
+#include "achordion.h"
 
 
 
@@ -294,12 +295,17 @@ tap_dance_action_t tap_dance_actions[] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  // Let Achordion resolve tap-hold decisions first.
+  if (!process_achordion(keycode, record)) {
+    return false;
+  }
+
   switch (keycode) {
     case ST_MACRO_0:
-    if (record->event.pressed) {
-      SEND_STRING(SS_LGUI(SS_TAP(X_A))SS_DELAY(100)  SS_LGUI(SS_TAP(X_C)));
-    }
-    break;
+      if (record->event.pressed) {
+        SEND_STRING(SS_LGUI(SS_TAP(X_A)) SS_DELAY(100) SS_LGUI(SS_TAP(X_C)));
+      }
+      break;
 
     case DUAL_FUNC_0:
       if (record->tap.count > 0) {
@@ -313,14 +319,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           register_mods(MOD_HYPR);
         } else {
           unregister_mods(MOD_HYPR);
-        }  
-      }  
+        }
+      }
       return false;
+
     case RGB_SLD:
       if (record->event.pressed) {
         rgblight_mode(1);
       }
       return false;
   }
+
   return true;
+}
+
+void matrix_scan_user(void) {
+  achordion_task();
+}
+
+bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record,
+                     uint16_t other_keycode, keyrecord_t *other_record) {
+  return achordion_opposite_hands(tap_hold_keycode, other_keycode);
 }
