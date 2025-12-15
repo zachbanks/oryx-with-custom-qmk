@@ -7,8 +7,7 @@
 #endif
 
 # ─────────────────────────── Custom mods ───────────────────────────
-#define IGNORE_MOD_TAP_INTERRUPT
-#define SPC_L1 LT(_LAYER1, KC_SPC)
+
 
 
 
@@ -324,13 +323,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
   }
   return true;
-}
-
-bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case SPC_L1:
-            return true;
-        default:
-            return false;
-    }
 }
