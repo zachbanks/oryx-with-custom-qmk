@@ -4,7 +4,7 @@
 #define DEBOUNCE 3
 
 #undef TAPPING_TERM
-#define TAPPING_TERM 125
+#define TAPPING_TERM 160
 #define QUICK_TAP_TERM 100
 
 #define ONESHOT_TAP_TOGGLE 2
