@@ -75,12 +75,6 @@ jobs:
           printf "✨(oryx): %s\n" "$CHANGE_DESCRIPTION" | git commit -F - || echo "No layout change"
           git push origin HEAD:main
 
-      - name: Merge Oryx with custom QMK (main branch)
-        run: |
-          git fetch origin main
-          git checkout -B main origin/main
-          git merge -Xignore-all-space oryx
-          git push origin main
 
       - name: Update QMK firmware submodule to latest version (${{ steps.download-layout-source.outputs.firmware_version }})
         run: |
